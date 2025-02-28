@@ -1,0 +1,66 @@
+# Python Gitignore
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+uploads/*
+*.py[cod]
+*$py.class
+
+# Virtual environment
+venv/
+.env/
+*.env
+
+# Logs and databases
+*.log
+*.sqlite3
+
+# Distribution / packaging
+.Python
+dist/
+build/
+*.egg-info/
+
+# IDE / Editor settings
+.vscode/
+.idea/
+*.iml
+
+# Jupyter notebooks
+.ipynb_checkpoints/
+
+# Pytest cache
+.pytest_cache/
+
+# Coverage reports
+htmlcov/
+.coverage
+
+# MyPy
+.mypy_cache/
+
+# Temporary files
+*.swp
+*.swo
+
+# Docker
+.dockerignore
+
+# MacOS
+.DS_Store
+
+# AWS & Cloud
+*.pem
+*.crt
+*.key
+
+# PyCharm
+*.idea/
+*.idea/*
+
+# Flask & Django
+instance/
+settings.py
+
+# Ignore local test scripts
+tests/__pycache__/
