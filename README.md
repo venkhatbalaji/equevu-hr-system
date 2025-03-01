@@ -15,18 +15,30 @@ Equevu HR System is a minimal HR platform where candidates can **register** and 
 
 ## 🏗 **Project Structure**
 
-equevu-hr-system/ │── backend/ # FastAPI Backend (Python) │ │── app/ │ │── db/ │ │── services/ │ │── schemas/ │ │── main.py │ │── Dockerfile │── frontend/ # Next.js Frontend (React, TypeScript) │ │── src/ │ │── pages/ │ │── components/ │ │── context/ │ │── Dockerfile │── docker-compose.yml # Docker configuration for full app │── README.md
+equevu-hr-system/
+│── backend/ # FastAPI Backend (Python)
+│ │── app/ # Application logic
+│ │ │── api/ # API Routes
+│ │ │── services/ # Business logic layer
+│ │ │── schemas/ # Pydantic models for validation
+│ │ │── db/ # Database configuration
+│ │── main.py # Entry point for FastAPI
+│ │── Dockerfile # Docker configuration for backend
+│── frontend/ # Next.js Frontend (React, TypeScript)
+│ │── src/
+│ │ │── pages/ # Next.js pages
+│ │ │── components/ # UI components
+│ │ │── context/ # Context providers
+│ │── Dockerfile # Docker configuration for frontend
+│── docker-compose.yml # Docker configuration for full app
+│── README.md # Documentation
 
----
+## 🏗 **Running the project**
 
-## 🚀 **1. Running Locally**
-
-### **Backend (FastAPI + PostgreSQL)**
+### **To run the backend, frontend, and database (PostgreSQL) all together using Docker Compose, use:**
 
 ```sh
-cd backend
-python -m venv venv   # Create Virtual Environment
-source venv/bin/activate  # (On Windows, use: venv\Scripts\activate)
-pip install -r requirements.txt  # Install dependencies
-python main.py --reload  # Run FastAPI server
+docker-compose up --build # Building 
+
+docker-compose up -d # Running
 ```
