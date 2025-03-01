@@ -15,24 +15,27 @@ Equevu HR System is a minimal HR platform where candidates can **register** and 
 
 ## 🏗 **Project Structure**
 
+```sh
 equevu-hr-system/
 │── backend/ # FastAPI Backend (Python)
 │ │── app/ # Application logic
 │ │ │── api/ # API Routes
 │ │ │── services/ # Business logic layer
-│ │ │── schemas/ # Pydantic models for validation
 │ │ │── db/ # Database configuration
+| | │── schemas/ # Pydantic models for validation
+| | │── utils/ # For handling to save resumes
 │ │── main.py # Entry point for FastAPI
 │ │── Dockerfile # Docker configuration for backend
 │── frontend/ # Next.js Frontend (React, TypeScript)
 │ │── src/
-│ │ │── pages/ # Next.js pages
-│ │ │── components/ # UI components
+│ │ │── app/ # Next.js app
+│ │ │── component/ # UI components
 │ │ │── context/ # Context providers
+│ │ │── schema/ # yup schema for validation
 │ │── Dockerfile # Docker configuration for frontend
 │── docker-compose.yml # Docker configuration for full app
 │── README.md # Documentation
-
+```
 ## 🏗 **Running the project**
 
 ### **To run the backend, frontend, and database (PostgreSQL) all together using Docker Compose, use:**
