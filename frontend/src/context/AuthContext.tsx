@@ -20,18 +20,17 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     const adminSession = localStorage.getItem("admin_token");
-    console.log(adminSession);
     if (adminSession === "1") {
       setIsAdmin(true);
       router.push("/admin");
     }
-  }, []);
+  }, [router]);
 
   const login = (password: string) => {
     if (password === "admin123") {
       localStorage.setItem("admin_token", "1");
       setIsAdmin(true);
-      router.push("/admin");
+      router?.push("/admin");
     } else {
       alert("Invalid password");
     }
@@ -40,7 +39,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   const logout = () => {
     localStorage.removeItem("admin_token");
     setIsAdmin(false);
-    router.push("/");
+    router?.push("/");
   };
 
   return (

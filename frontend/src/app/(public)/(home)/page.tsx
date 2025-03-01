@@ -26,11 +26,17 @@ export default function CandidateForm() {
     handleSubmit,
     reset,
     formState: { errors },
-  } = useForm<CandidateFormData>({
+  } = useForm<{
+    dob?: Date | undefined;
+    full_name: string;
+    experience: number;
+    department: NonNullable<"IT" | "HR" | "Finance" | undefined>;
+    resume: object;
+  }>({
     resolver: yupResolver(candidateSchema),
   });
 
-  const onSubmit = async (data: CandidateFormData) => {
+  const onSubmit = async (data: any) => {
     setErrorMessage(null);
     setSuccessMessage(null);
 

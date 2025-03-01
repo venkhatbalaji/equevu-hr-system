@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import axios from "axios";
 import { useAuth } from "@/context/AuthContext";
@@ -22,12 +22,8 @@ export default function AdminDashboard() {
   const [page, setPage] = useState<number>(1);
   const [department, setDepartment] = useState<string | "">("");
   const router = useRouter();
-
-  useEffect(() => {
-    fetchCandidates();
-  }, [isAdmin, page, department]);
-
-  const fetchCandidates = async () => {
+  const fetchCandidates = useCallback(async () => {
+    if (!isAdmin) return;
     setLoading(true);
     axios
       .get(`${process.env.NEXT_PUBLIC_API_URL}/candidates/`, {
@@ -44,8 +40,12 @@ export default function AdminDashboard() {
         setTimeout(() => router.push("/login"), 2000);
       })
       .finally(() => setLoading(false));
-  };
-
+  }, [isAdmin, page, department, router]);
+  useEffect(() => {
+    if (isAdmin) {
+      fetchCandidates();
+    }
+  }, [isAdmin, page, department]);
   const handleDownloadResume = async (
     candidateId: number,
     candidateName: string
