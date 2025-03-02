@@ -1,11 +1,11 @@
-# Equevu HR System
+# HR System
 
 Equevu HR System is a minimal HR platform where candidates can **register** and **upload resumes**, while admins can **view and download resumes**.
 
 ## 🚀 Features
 
 ✅ Candidate Registration  
-✅ Resume Upload (PDF/DOCX)  
+✅ Resume Upload (PDF)  
 ✅ Admin Dashboard for Viewing Candidates  
 ✅ Secure Authentication for Admin  
 ✅ Pagination & Filtering  
